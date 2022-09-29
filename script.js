@@ -6,22 +6,27 @@ const data = window.data;
 // Make your References to the two DOM nodes
 
 // Create a reference to the element who's ID is 'big_coffee and call it bigCoffee
-
+let bigCoffee = document.getElementById("big_coffee");
 // Create a reference to the element who's ID is 'producer_container' and call it producerContainer
-
+let producerContainer = document.getElementById("producer_container");
 /**************
  *   SLICE 1
  **************/
 
 function updateCoffeeView(coffeeQty) {
   // Create a reference to the element who's ID is 'coffee_counter'
+  let coffeeCounter = document.getElementById("coffee_counter");
   // Set the innerText of that element to be the coffeeQty passed into this function
+  coffeeCounter.innerText = coffeeQty;
 }
 
 function clickCoffee(data) {
   // Increment the data object's (passed into this function) coffee property by one
+  data.coffee++;
   // call the updateCoffeeView function and pass it the newly updated data.coffee property
+  updateCoffeeView(data.coffee);
   // call the renderProducers function and pass it the data object
+  renderProducers(data);
 }
 
 /**************
@@ -30,14 +35,21 @@ function clickCoffee(data) {
 
 function unlockProducers(producers, coffeeCount) {
   // loop through the producers array passed into the function
-  // for each producer, if the coffeeCount (passed in) is greater than or equal
-  // to half the producer's price, reassign the producers.unlocked property to equal true
+  for (let i = 0; i < producers.length; i++) {
+    // for each producer, if the coffeeCount (passed in) is greater than or equal
+    // to half the producer's price, reassign the producers.unlocked property to equal true
+    if (coffeeCount >= producers[i].price / 2) {
+      producers[i].unlocked = true;
+    }
+  }
 }
 
 function getUnlockedProducers(data) {
+  const isUnlocked = [];
   // use the Array.prototype.filter() method
   // filter through the data.producers property, and return an array with only the producers whose
   // unlocked property is true
+  isUnlocked = data.producers.filter();
 }
 
 // You do not need to edit this function
