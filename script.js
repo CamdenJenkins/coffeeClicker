@@ -45,11 +45,11 @@ function unlockProducers(producers, coffeeCount) {
 }
 
 function getUnlockedProducers(data) {
-  const isUnlocked = [];
   // use the Array.prototype.filter() method
   // filter through the data.producers property, and return an array with only the producers whose
   // unlocked property is true
-  isUnlocked = data.producers.filter();
+  const isUnlocked = data.producers.filter((boolean) => boolean === true);
+  return isUnlocked;
 }
 
 // You do not need to edit this function
@@ -90,9 +90,9 @@ function deleteAllChildNodes(parent) {
 
 function renderProducers(data) {
   // call the unlockProducers function and pass it data.producers and data.coffee
-
+  unlockProducers(data.producers, data.coffee);
   // make a reference to the DOM element whose ID is producer_container
-
+  let producerContainer = document.getElementById("producer_container");
   // call the deleteAllChildNodes function and pass it the above producerContainer element
 
   // you do not need to edit the following code, but for understanding, this gets the unlocked producers,
